@@ -2,12 +2,12 @@ import java.util.Objects;
 
 public class Animal  {
 
-   private  String name;
-   private int age;
-   private String breed;
+     String name;
+    int age;
+    String breed;
 
 
-    //public Animal(){}
+    public Animal(){}
     public Animal(String name, int age, String breed) {
         this.name = name;
         this.age = age;
@@ -59,4 +59,13 @@ public class Animal  {
                 ", breed='" + breed + '\'' +
                 '}';
     }
+
+    public void myMethoud(String a, int b){
+        System.out.println("Ім'я методу: " + a + " Просто цифра: "+ b);
+    }
+
+    public void myMethod(String v){
+        System.out.println(v);
+    }
+
 }

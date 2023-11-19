@@ -8,13 +8,10 @@ import java.lang.reflect.*;
 import java.util.Arrays;
 
 public class Main {
-    public Main() {
-    }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchFieldException {
 
         Class<Animal> ac = Animal.class;
-        Class cc = Cat.class;
+        Animal animal = new Animal();
 
         String getName = ac.getName();
         System.out.println("Ім'я " + getName);
@@ -58,6 +55,25 @@ public class Main {
             System.out.println("Параметри "+aClass);
         }
 
+        //замінемо дані класу Animal
+
+        Constructor<Animal> animalconstructor = ac.getConstructor(String.class, int.class, String.class);
+        // створюємо нову тварину
+        Animal newAnimal = animalconstructor.newInstance("Name", 20, "breed");
+        System.out.println("Не змінений: " + newAnimal);
+        // змінюємо вік
+        Field ageField = ac.getDeclaredField("age");
+        ageField.set(newAnimal, 80);
+        System.out.println("Змінений:" + newAnimal);
+
+        //Викличемо методи
+        Method[] methods = ac.getMethods();
+        for (int i =0; i< methods.length;  i++){
+            Method method = methods[i];
+            System.out.println(method);
+        }
+
+        // methods[1].invoke(newAnimal,"lal" );
 
     }
 }
