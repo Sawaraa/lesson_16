@@ -1,15 +1,13 @@
-package kotlar;
-
 import java.util.Objects;
 
 public class Animal  {
 
-    String name;
-    int age;
-    String breed;
+   private  String name;
+   private int age;
+   private String breed;
 
 
-    public Animal(){}
+    //public Animal(){}
     public Animal(String name, int age, String breed) {
         this.name = name;
         this.age = age;
@@ -55,7 +53,7 @@ public class Animal  {
 
     @Override
     public String toString() {
-        return "kotlar.Animal{" +
+        return "Animal{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", breed='" + breed + '\'' +
